@@ -30,7 +30,7 @@ services:
       MYSQL_DATABASE: Airbnb
       MYSQL_USER: momo
       MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: secret 
+      MYSQL_ROOT_PASSWORD: password 
 
       
   phpmyadmin:

@@ -9,7 +9,7 @@ try {
     echo "(´･ω･`)人(`･ω･´)ﾄﾞﾝﾏｲ!!: " . $e->getMessage() . "\n";
     exit();
 }
-$members = $dbh->prepare('SELECT * FROM members');
+$members = $dbh->prepare('SELECT * FROM members WHERE id = 1');
 $members->execute();
 $members_info = $members->fetchAll();
 ?>
