@@ -38,108 +38,108 @@ INSERT INTO
 SET
   name = 'おのかんの家',
   img = 'onokan.jpg',
-  location = 1,
-  service = 0,
+  location = 'true',
+  service = 'false',
   price = 1000,
   capacity = 15,
-  popularity = 0;
+  popularity = 'false';
 
 INSERT INTO
   airbnbs
 SET
   name = 'なおきの家',
   img = 'naoki.jpg',
-  location = 0,
-  service = 1,
+  location = 'false',
+  service = 'true',
   price = 10,
   capacity = 30,
-  popularity = 0;
+  popularity = 'false';
 
 INSERT INTO
   airbnbs
 SET
   name = 'けんとの家',
   img = 'kento.jpg',
-  location = 1,
-  service = 0,
+  location = 'true',
+  service = 'false',
   price = 500,
   capacity = 5,
-  popularity = 0;
+  popularity = 'false';
 
 INSERT INTO
   airbnbs
 SET
   name = 'かずきの家',
   img = 'kazuki.jpeg',
-  location = 0,
-  service = 0,
+  location = 'false',
+  service = 'false',
   price = 2000,
   capacity = 7,
-  popularity = 1;
+  popularity = 'true';
 
 INSERT INTO
   airbnbs
 SET
   name = 'こうへいの家',
   img = 'kohei.jpg',
-  location = 1,
-  service = 0,
+  location = 'true',
+  service = 'false',
   price = 10000,
   capacity = 10,
-  popularity = 1;
+  popularity = 'true';
 
 INSERT INTO
   airbnbs
 SET
   name = 'じんの家',
   img = 'jin.jpg',
-  location = 1,
-  service = 0,
+  location = 'true',
+  service = 'false',
   price = 30000,
   capacity = 8,
-  popularity = 0;
+  popularity = 'false';
 
 INSERT INTO
   airbnbs
 SET
   name = 'まいのの家',
   img = 'maino.jpg',
-  location = 1,
-  service = 1,
+  location = 'true',
+  service = 'true',
   price = 100000,
   capacity = 15,
-  popularity = 1;
+  popularity = 'true';
 
 INSERT INTO
   airbnbs
 SET
   name = 'さちの家',
   img = 'sachi.jpg',
-  location = 1,
-  service = 0,
+  location = 'true',
+  service = 'false',
   price = 120000,
   capacity = 20,
-  popularity = 0;
+  popularity = 'false';
 
 INSERT INTO
   airbnbs
 SET
   name = 'ももの家',
   img = 'momo.jpg',
-  location = 1,
-  service = 0,
+  location = 'true',
+  service = 'false',
   price = 500,
   capacity = 3,
-  popularity = 1;
+  popularity = 'true';
 
 INSERT INTO
   airbnbs
 SET
   name = 'HarborS',
   img = 'harbors.jpg',
-  location = 1,
-  service = 1,
+  location = 'true',
+  service = 'true',
   price = 900,
   capacity = 65,
-  popularity = 0;
+  popularity = 'false';
 
