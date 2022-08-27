@@ -2,8 +2,8 @@
 session_start();
 require(dirname(__FILE__) . "/dbconnect.php");
 
-$stmt = $db->query('SELECT id, title FROM events');
-$events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt = $db->query('SELECT * FROM airbnbs');
+$airbnbs = $stmt->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -14,14 +14,16 @@ $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>サンプル</title>
 </head>
-<ul>
-    <?php foreach ($events as $key => $event) : ?>
-        <li>
-            <?= $event["id"]; ?>:<?= $event["title"]; ?>
-        </li>
+<div style="display: flex; flex-wrap: wrap; justify-content: center">
+    <?php foreach ($airbnbs as $airbnb) : ?>
+        <div>
+            <h1><?= $airbnb["name"] ?></h1>
+            <img src="./img/airbnbs/<?= $airbnb["img"] ?>" alt="airbnb" style="width: 300px; height: 300px">
+            <p>¥<?= $airbnb["price"] ?>/泊</p>
+            <p>収容：<?= $airbnb["capacity"] ?>人</p>
+        </div>
     <?php endforeach; ?>
-    <a href="/admin/index.php">管理者ページ</a>
-</ul>
+</div>
 
 <body>
 </body>
