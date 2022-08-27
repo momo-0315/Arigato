@@ -13,14 +13,16 @@ $airbnbs = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>サンプル</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
 </head>
-<div style="display: flex; flex-wrap: wrap; justify-content: center">
+<div class="list">
     <?php foreach ($airbnbs as $airbnb) : ?>
-        <div>
-            <h1><?= $airbnb["name"] ?></h1>
-            <img src="./img/airbnbs/<?= $airbnb["img"] ?>" alt="airbnb" style="width: 300px; height: 300px">
-            <p>¥<?= $airbnb["price"] ?>/泊</p>
-            <p>収容：<?= $airbnb["capacity"] ?>人</p>
+        <div class="list__item">
+            <img class="list__item--img" src="./img/airbnbs/<?= $airbnb["img"] ?>" alt="airbnb">
+            <h1 class="list__item--title"><?= $airbnb["name"] ?></h1>
+            <p class="list__item--price">¥<?= $airbnb["price"] ?>/泊</p>
+            <p class="list__item--capacity">収容：<?= $airbnb["capacity"] ?>人</p>
         </div>
     <?php endforeach; ?>
 </div>
