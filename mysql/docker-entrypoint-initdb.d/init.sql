@@ -1,8 +1,8 @@
-DROP SCHEMA IF EXISTS shukatsu;
+DROP SCHEMA IF EXISTS airbnb;
 
-CREATE SCHEMA shukatsu;
+CREATE SCHEMA airbnb;
 
-USE shukatsu;
+USE airbnb;
 
 DROP TABLE IF EXISTS users;
 
