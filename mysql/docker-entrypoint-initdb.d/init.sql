@@ -1,8 +1,8 @@
-DROP SCHEMA IF EXISTS airbnb;
+DROP SCHEMA IF EXISTS arigato;
 
-CREATE SCHEMA airbnb;
+CREATE SCHEMA arigato;
 
-USE airbnb;
+USE arigato;
 
 DROP TABLE IF EXISTS users;
 
@@ -20,7 +20,7 @@ SET
   email = 'test@posse-ap.com',
   password = sha1('password');
 
-DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS airbnbs;
 
 CREATE TABLE airbnbs (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -38,108 +38,108 @@ INSERT INTO
 SET
   name = 'おのかんの家',
   img = 'onokan.jpg',
-  location = 'true',
-  service = 'false',
+  location = 1,
+  service = 0,
   price = 1000,
   capacity = 15,
-  popularity = 'false';
+  popularity = 0;
 
 INSERT INTO
   airbnbs
 SET
   name = 'なおきの家',
   img = 'naoki.jpg',
-  location = 'false',
-  service = 'true',
+  location = 0,
+  service = 1,
   price = 10,
   capacity = 30,
-  popularity = 'false';
+  popularity = 0;
 
 INSERT INTO
   airbnbs
 SET
   name = 'けんとの家',
   img = 'kento.jpg',
-  location = 'true',
-  service = 'false',
+  location = 1,
+  service = 0,
   price = 500,
   capacity = 5,
-  popularity = 'false';
+  popularity = 0;
 
 INSERT INTO
   airbnbs
 SET
   name = 'かずきの家',
   img = 'kazuki.jpeg',
-  location = 'false',
-  service = 'false',
+  location = 0,
+  service = 0,
   price = 2000,
   capacity = 7,
-  popularity = 'true';
+  popularity = 1;
 
 INSERT INTO
   airbnbs
 SET
   name = 'こうへいの家',
   img = 'kohei.jpg',
-  location = 'true',
-  service = 'false',
+  location = 1,
+  service = 0,
   price = 10000,
   capacity = 10,
-  popularity = 'true';
+  popularity = 1;
 
 INSERT INTO
   airbnbs
 SET
   name = 'じんの家',
   img = 'jin.jpg',
-  location = 'true',
-  service = 'false',
+  location = 1,
+  service = 0,
   price = 30000,
   capacity = 8,
-  popularity = 'false';
+  popularity = 0;
 
 INSERT INTO
   airbnbs
 SET
   name = 'まいのの家',
   img = 'maino.jpg',
-  location = 'true',
-  service = 'true',
+  location = 1,
+  service = 1,
   price = 100000,
   capacity = 15,
-  popularity = 'true';
+  popularity = 1;
 
 INSERT INTO
   airbnbs
 SET
   name = 'さちの家',
   img = 'sachi.jpg',
-  location = 'true',
-  service = 'false',
+  location = 1,
+  service = 0,
   price = 120000,
   capacity = 20,
-  popularity = 'false';
+  popularity = 0;
 
 INSERT INTO
   airbnbs
 SET
   name = 'ももの家',
   img = 'momo.jpg',
-  location = 'true',
-  service = 'false',
+  location = 1,
+  service = 0,
   price = 500,
   capacity = 3,
-  popularity = 'true';
+  popularity = 1;
 
 INSERT INTO
   airbnbs
 SET
   name = 'HarborS',
   img = 'harbors.jpg',
-  location = 'true',
-  service = 'true',
+  location = 1,
+  service = 1,
   price = 900,
   capacity = 65,
-  popularity = 'false';
+  popularity = 0;
 
