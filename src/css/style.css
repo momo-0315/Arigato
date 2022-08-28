@@ -18,7 +18,6 @@
   margin-bottom: 12px;
 }
 .list__item--title, .list__item--price, .list__item--capacity {
-  margin: 0;
+  margin: 5px 0;
   font-size: 15px;
-  line-height: 19px;
 }/*# sourceMappingURL=style.css.map */
