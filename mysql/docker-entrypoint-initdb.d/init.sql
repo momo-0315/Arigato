@@ -26,11 +26,11 @@ CREATE TABLE airbnbs (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   img VARCHAR(255) NOT NULL,
-  location BIT NOT NULL,
-  service BIT NOT NULL,
+  location TINYINT(1) NOT NULL,
+  service TINYINT(1) NOT NULL,
   price INT NOT NULL,
   capacity INT NOT NULL,
-  popularity BIT NOT NULL
+  popularity TINYINT(1) NOT NULL
 );
 
 INSERT INTO
