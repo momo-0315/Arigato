@@ -29,59 +29,55 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<?php include('./common/admin_header.php'); ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add</title>
-</head>
 
 <body>
-  <form action="" method="post" enctype="multipart/form-data">
+  <div class="util__container">
     <div class="add">
-      <div class="add__item">
-        <label for="name">名前</label>
-        <input name="name" type="text">
-      </div>
-      <div class="add__item">
-        <label for="image">写真</label>
-        <input name="image" type="file">
-      </div>
-      <div class="add__item">
-        <label for="location">立地</label>
-        <select name="location">
-          <option value="1">◯</option>
-          <option value="0">✖︎</option>
-        </select>
-      </div>
-      <div class="add__item">
-        <label for="service">サービス</label>
-        <select name="service">
-          <option value="1">◯</option>
-          <option value="0">✖︎</option>
-        </select>
-      </div>
-      <div class="add__item">
-        <label for="price">値段</label>
-        <input name="price" type="text">
-      </div>
-      <div class="add__item">
-        <label for="capacity">収容人数</label>
-        <input name="capacity" type="text">
-      </div>
-      <div class="add__item">
-        <label for="popularity">サービス</label>
-        <select name="popularity">
-          <option value="1">◯</option>
-          <option value="0">✖︎</option>
-        </select>
-      </div>
-      <input type="submit" name="submit" value="追加">
+      <form action="" method="post" enctype="multipart/form-data">
+        <div class="add__item">
+          <label class="add__item--label" for="name">名前</label>
+          <input class="add__item--input" name="name" type="text">
+        </div>
+        <div class="add__item">
+          <label class="add__item--label" for="image">写真</label>
+          <input name="image" type="file">
+        </div>
+        <div class="add__item">
+          <label class="add__item--label" for="location">立地</label>
+          <select class="add__item--select" name="location">
+            <option value="1">◯</option>
+            <option value="0">✖︎</option>
+          </select>
+        </div>
+        <div class="add__item">
+          <label class="add__item--label" for="service">サービス</label>
+          <select class="add__item--select" name="service">
+            <option value="1">◯</option>
+            <option value="0">✖︎</option>
+          </select>
+        </div>
+        <div class="add__item">
+          <label class="add__item--label" for="price">値段</label>
+          <input class="add__item--input" name="price" type="text">
+        </div>
+        <div class="add__item">
+          <label class="add__item--label" for="capacity">収容人数</label>
+          <input class="add__item--input" name="capacity" type="text">
+        </div>
+        <div class="add__item">
+          <label class="add__item--label" for="popularity">サービス</label>
+          <select class="add__item--select" name="popularity">
+            <option value="1">◯</option>
+            <option value="0">✖︎</option>
+          </select>
+        </div>
+        <input class="add__button" type="submit" name="submit" value="追加">
+      </form>
     </div>
-  </form>
+
+  </div>
 
 </body>
 
