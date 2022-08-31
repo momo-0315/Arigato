@@ -86,6 +86,10 @@
 .list__item {
   margin-bottom: 32px;
 }
+.list__item--link {
+  text-decoration: none;
+  color: #000;
+}
 .list__item--img {
   width: 302px;
   height: 287px;
