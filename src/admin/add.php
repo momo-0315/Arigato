@@ -34,46 +34,46 @@ if (isset($_POST['submit'])) {
 
 <body>
   <div class="util__container">
-    <div class="add">
+    <div class="change">
       <form action="" method="post" enctype="multipart/form-data">
-        <div class="add__item">
-          <label class="add__item--label" for="name">名前</label>
-          <input class="add__item--input" name="name" type="text">
+        <div class="change__item">
+          <label class="change__item--label" for="name">名前</label>
+          <input class="change__item--input" name="name" type="text">
         </div>
-        <div class="add__item">
-          <label class="add__item--label" for="image">写真</label>
-          <input name="image" type="file">
+        <div class="change__item">
+          <label class="change__item--label">写真</label>
+          <input class="change__item--file" name="image" type="file">
         </div>
-        <div class="add__item">
-          <label class="add__item--label" for="location">立地</label>
-          <select class="add__item--select" name="location">
+        <div class="change__item">
+          <label class="change__item--label" for="location">立地</label>
+          <select class="change__item--select" name="location">
             <option value="1">◯</option>
             <option value="0">✖︎</option>
           </select>
         </div>
-        <div class="add__item">
-          <label class="add__item--label" for="service">サービス</label>
-          <select class="add__item--select" name="service">
+        <div class="change__item">
+          <label class="change__item--label" for="service">サービス</label>
+          <select class="change__item--select" name="service">
             <option value="1">◯</option>
             <option value="0">✖︎</option>
           </select>
         </div>
-        <div class="add__item">
-          <label class="add__item--label" for="price">値段</label>
-          <input class="add__item--input" name="price" type="text">
+        <div class="change__item">
+          <label class="change__item--label" for="price">値段</label>
+          <input class="change__item--input" name="price" type="text">
         </div>
-        <div class="add__item">
-          <label class="add__item--label" for="capacity">収容人数</label>
-          <input class="add__item--input" name="capacity" type="text">
+        <div class="change__item">
+          <label class="change__item--label" for="capacity">収容人数</label>
+          <input class="change__item--input" name="capacity" type="text">
         </div>
-        <div class="add__item">
-          <label class="add__item--label" for="popularity">サービス</label>
-          <select class="add__item--select" name="popularity">
+        <div class="change__item">
+          <label class="change__item--label" for="popularity">サービス</label>
+          <select class="change__item--select" name="popularity">
             <option value="1">◯</option>
             <option value="0">✖︎</option>
           </select>
         </div>
-        <input class="add__button" type="submit" name="submit" value="追加">
+        <input class="change__button" type="submit" name="submit" value="追加">
       </form>
     </div>
 
