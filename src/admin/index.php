@@ -2,7 +2,7 @@
 session_start();
 require("../dbconnect.php");
 
-$stmt = $db->query('SELECT * FROM airbnbs');
+$stmt = $db->query('SELECT * FROM airbnbs WHERE hide = 0');
 $airbnbs = $stmt->fetchAll();
 
 ?>
