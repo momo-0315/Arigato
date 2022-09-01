@@ -11,7 +11,8 @@ if (isset($_GET['id'])) {
   $stmt = $db->query("SELECT * FROM airbnbs WHERE id = '$id'");
   $airbnb = $stmt->fetch();
 
-  if (isset($_POST['submit'])) {
+    // 更新処理
+  if (isset($_POST['update'])) {
     // 画像以外の追加
     $airbnb_name = $_POST['name'];
     $airbnb_location = $_POST['location'];
@@ -39,6 +40,15 @@ if (isset($_GET['id'])) {
     } else {
       // echo "Sorry, there was an error uploading your file.";
     }
+
+    header('Location: index.php');
+  }
+
+  // 削除処理
+  if (isset($_POST['delete'])) {
+    
+    $stmt = $db->prepare("UPDATE airbnbs SET hide = 1 WHERE id = '$id'");
+    $stmt->execute();
 
     header('Location: index.php');
   }
@@ -90,7 +100,8 @@ if (isset($_GET['id'])) {
             <option value="0" <?= $airbnb['popularity'] === 0 ? 'selected' : ''; ?>>✖︎</option>
           </select>
         </div>
-        <input class="change__button" type="submit" name="submit" value="更新">
+        <input class="delete__button" type="submit" name="delete" value="削除">
+        <input class="edit__button" type="submit" name="update" value="更新">
       </form>
     </div>
 
