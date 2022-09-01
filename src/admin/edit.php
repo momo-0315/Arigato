@@ -11,6 +11,7 @@ if (isset($_GET['id'])) {
   $stmt = $db->query("SELECT * FROM airbnbs WHERE id = '$id'");
   $airbnb = $stmt->fetch();
 
+    // 更新処理
   if (isset($_POST['update'])) {
     // 画像以外の追加
     $airbnb_name = $_POST['name'];
@@ -43,10 +44,11 @@ if (isset($_GET['id'])) {
     header('Location: index.php');
   }
 
+  // 削除処理
   if (isset($_POST['delete'])) {
     
-    $stmt = $db->prepare('DELETE from airbnbs WHERE id = ?');
-    $stmt->execute(array($airbnb_name));
+    $stmt = $db->prepare("UPDATE airbnbs SET hide = 1 WHERE id = '$id'");
+    $stmt->execute();
 
     header('Location: index.php');
   }

@@ -30,7 +30,8 @@ CREATE TABLE airbnbs (
   service TINYINT(1) NOT NULL,
   price INT NOT NULL,
   capacity INT NOT NULL,
-  popularity TINYINT(1) NOT NULL
+  popularity TINYINT(1) NOT NULL,
+  hide TINYINT(1) NOT NULL DEFAULT 0
 );
 
 INSERT INTO
