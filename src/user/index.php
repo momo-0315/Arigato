@@ -5,6 +5,8 @@ require("../dbconnect.php");
 $stmt = $db->query('SELECT * FROM airbnbs');
 $airbnbs = $stmt->fetchAll();
 
+// フィルター処理
+
 ?>
 
 <?php include('./common/user_header.php'); ?>
