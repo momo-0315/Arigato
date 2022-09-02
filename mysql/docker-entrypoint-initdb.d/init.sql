@@ -4,21 +4,31 @@ CREATE SCHEMA arigato;
 
 USE arigato;
 
+-- ユーザー
 DROP TABLE IF EXISTS users;
 
-CREATE TABLE users (
-  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  email VARCHAR(255) UNIQUE NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+CREATE TABLE
+    users (
+        id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL
+    );
 
-INSERT INTO
-  users
-SET
-  email = 'test@posse-ap.com',
-  password = sha1('password');
+INSERT INTO users (email, password) VALUES ("user1@airbnb.com","airbnb1");
+INSERT INTO users (email, password) VALUES ("user2@airbnb.com","airbnb2");
+
+-- 管理者
+DROP TABLE IF EXISTS admins;
+
+CREATE TABLE
+    admins (
+        id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL
+    )
+
+INSERT INTO admins (email, password) VALUES ("admin1@airbnb.com","airbnb1");
+INSERT INTO admins (email, password) VALUES ("admin2@airbnb.com","airbnb2");
 
 DROP TABLE IF EXISTS airbnbs;
 
