@@ -78,8 +78,7 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 1280px;
-  margin: 10px auto 0 auto;
-  padding-top: 10%;
+  margin: 150px auto 0 auto;
 }
 
 .list__item {
@@ -101,6 +100,36 @@
   margin: 0;
   font-size: 15px;
   line-height: 19px;
+}
+
+.filter {
+  width: 1280px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.filter__item {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.filter__item:hover {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.filter__item--img {
+  width: 24px;
+}
+.filter__item--text {
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 .change {
