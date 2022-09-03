@@ -85,6 +85,11 @@
   margin: 0 auto;
   background-color: #fff;
 }
+.filter__clicked {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
 .filter__item {
   width: 80px;
   display: flex;

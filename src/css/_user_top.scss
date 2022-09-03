@@ -1,4 +1,3 @@
-
 // サイト検索部分
 
 // フィルター部分
@@ -12,6 +11,12 @@
   right: 0;
   margin: 0 auto;
   background-color: #fff;
+
+  &__clicked {
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 
   &__item {
     width: 80px;
@@ -37,7 +42,6 @@
     }
   }
 }
-
 
 // 一覧部分
 .list {
