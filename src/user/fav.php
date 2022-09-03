@@ -41,7 +41,7 @@ if (isset($_POST['delete'])) {
               <td><?= $favourite['capacity'] ?>人</td>
               <td>
                 <input type="hidden" name="delete_id" value="<?= $favourite['id'] ?>">
-                <button name="delete">削除</button>
+                <button class="delete_button" name="delete">削除</button>
               </td>
             </tr>
           </tbody>
