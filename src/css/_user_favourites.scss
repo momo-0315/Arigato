@@ -1,0 +1,28 @@
+.favourites {
+  margin: 120px auto 0 auto;
+  width: 1280px;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__table {
+    width: 70%;
+    margin: 0 auto;
+    border-collapse: collapse;
+
+    td,
+    th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #35c1d3;
+      color: white;
+    }
+  }
+}
