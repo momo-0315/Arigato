@@ -48,6 +48,7 @@ if (isset($_POST['delete'])) {
         <?php endforeach; ?>
       </form>
     </table>
+    <a class="favourites__link" href="/user/index.php">一覧に戻る</a>
   </div>
 
 </body>
