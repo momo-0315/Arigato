@@ -90,6 +90,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: none;
+  background-color: inherit;
 }
 .filter__item:hover {
   font-weight: bold;

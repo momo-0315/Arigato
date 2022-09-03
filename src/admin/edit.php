@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
   $stmt = $db->query("SELECT * FROM airbnbs WHERE id = '$id'");
   $airbnb = $stmt->fetch();
 
-    // 更新処理
+  // 更新処理
   if (isset($_POST['update'])) {
     // 画像以外の追加
     $airbnb_name = $_POST['name'];

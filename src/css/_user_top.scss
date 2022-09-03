@@ -18,6 +18,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: none;
+    background-color: inherit;
 
     &:hover {
       font-weight: bold;
