@@ -23,26 +23,37 @@ if (isset($_POST['filter_service'])) {
 
 //お気に入り登録
 if (isset($_POST['id'])) {
-    $stmt = $db->prepare('SELECT * FROM airbnbs WHERE id = ?');
+
     $id = $_POST['id'];
-    $stmt->execute(array($id));
-    $liked = $stmt->fetch();
 
-    $liked_id = $liked['id'];
-    $liked_name = $liked['name'];
-    $liked_price = $liked['price'];
-    $liked_capacity = $liked['capacity'];
-
-    // 配列に入れるには、$liked_name,$liked_price,$liked_capacityの値が取得できていることが前提なのでif文で空のデータを排除する
-    if ($liked_id != '' && $liked_name != '' && $liked_price != '' && $liked_capacity != '') {
-        $_SESSION['favourites'][$id] = [
-            'id' => $liked_id,
-            'name' => $liked_name,
-            'price' => $liked_price,
-            'capacity' => $liked_capacity
-        ];
+    // お気に入りに既に登録している場合は削除
+    if (isset($_SESSION['favourites'][$id])) {
+        unset($_SESSION['favourites'][$id]);
+    // 既に登録していない場合は登録
+    } else {
+        $stmt = $db->prepare('SELECT * FROM airbnbs WHERE id = ?');
+        $stmt->execute(array($id));
+        $liked = $stmt->fetch();
+    
+        $liked_id = $liked['id'];
+        $liked_name = $liked['name'];
+        $liked_price = $liked['price'];
+        $liked_capacity = $liked['capacity'];
+    
+        // 配列に入れるには、$liked_name,$liked_price,$liked_capacityの値が取得できていることが前提なのでif文で空のデータを排除する
+        if ($liked_id != '' && $liked_name != '' && $liked_price != '' && $liked_capacity != '') {
+            $_SESSION['favourites'][$id] = [
+                'id' => $liked_id,
+                'name' => $liked_name,
+                'price' => $liked_price,
+                'capacity' => $liked_capacity
+            ];
+        }
     }
+
+    
 }
+
 
 $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
 
@@ -84,9 +95,9 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
                         <i class="far fa-heart"></i>
                     </a> -->
                     <button class="list__item--favourite">
-                        <?php if (empty($favourites[$airbnb['id']]))  { ?>
+                        <?php if (empty($favourites[$airbnb['id']])) { ?>
                             <i class="far fa-heart"></i>
-                        <?php } elseif ($favourites[$airbnb['id']]['id'] == $airbnb['id']) { ?>
+                        <?php } else { ?>
                             <i class="fas fa-heart"></i>
                         <?php } ?>
                     </button>
