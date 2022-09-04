@@ -10,18 +10,19 @@
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap" rel="stylesheet">
+</head>
 <header class="header">
     <div class="header__logo">
         <img class="header__logo--icon" src="../../img/logos/airbnb (1).png" alt="">
         <span class="header__logo--text">posse airbnb</span>
     </div>
     <form class="header__search" action="">
-    <input class="header__search--input" placeholder="サイト内検索はこちら">
+        <input class="header__search--input" placeholder="サイト内検索はこちら">
         <button class="header__search--mark_wrapper">
-        <img class="header__search--mark_img" src="../../img/logos/search.png" alt="">
+            <img class="header__search--mark_img" src="../../img/logos/search.png" alt="">
         </button>
-    </input>
+        </input>
     </form>
     <div>
 
