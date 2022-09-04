@@ -20,15 +20,19 @@
 <header class="header">
     <div class="header__logo">
         <img class="header__logo--icon" src="../../img/logos/airbnb (1).png" alt="">
+        </a>
         <span class="header__logo--text">posse airbnb</span>
     </div>
-    <form class="header__search" action="">
-        <input class="header__search--input" placeholder="サイト内検索はこちら">
-        <button class="header__search--mark_wrapper">
-            <img class="header__search--mark_img" src="../../img/logos/search.png" alt="">
-        </button>
-        </input>
-    </form>
+
+    <!--  サイト内検索 -->
+    <div class="searchbox">
+        <form method="post" action="searchbox.php">
+            <input type="text" name="word" value="" placeholder="word..." required>
+            <input type="submit" name="submit" value="検索" id="search">
+            <label for="search"><i class="fas fa-search"></i> </label>
+        </form>
+    </div>
+
     <div class="header__account">
         <img class="header__account--globe" src="../../img/logos/globe.png" alt="">
         <div class="header__account--wrapper">
