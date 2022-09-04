@@ -188,6 +188,11 @@
   font-size: 20px;
 }
 
+.detail__title {
+  display: flex;
+  align-items: baseline;
+}
+
 .change {
   max-width: 500px;
   margin: 0 auto;

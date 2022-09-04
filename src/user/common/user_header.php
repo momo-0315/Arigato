@@ -14,6 +14,8 @@
     <!-- font awesome -->
     <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- js読み込み -->
+    <script src="../../js/user_page.js"></script>
 </head>
 <header class="header">
     <div class="header__logo">

@@ -154,3 +154,13 @@ SET
   capacity = 65,
   popularity = 0;
 
+DROP TABLE IF EXISTS qualities;
+
+CREATE TABLE qualities (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  rate TINYINT(1) NOT NULL,
+  evaluation VARCHAR(255) NOT NULL
+);
+
+INSERT INTO qualities (rate, evaluation) VALUES ("0","悪い");
+INSERT INTO qualities (rate, evaluation) VALUES ("1","非常に良い");
