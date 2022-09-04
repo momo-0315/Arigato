@@ -23,10 +23,8 @@
         </button>
     </input>
     </form>
-    <div>
-
-    </div class="header__account">
-    <img class="header__account--globe" src="../../img/logos/globe.png" alt="">
-    <div class="header__account--wrapper"></div>
+    <div class="header__account">
+        <img class="header__account--globe" src="../../img/logos/globe.png" alt="">
+        <div class="header__account--wrapper"></div>
     </div>
 </header>
