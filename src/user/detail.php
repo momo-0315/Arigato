@@ -26,6 +26,10 @@ $location_quality = $stmt_qualities->fetch(PDO::FETCH_ASSOC);
 $data_service[] = $service_rate;
 $stmt_qualities->execute($data_service);
 $service_quality = $stmt_qualities->fetch(PDO::FETCH_ASSOC);
+// popularity
+$data_popularity[] = $popularity_rate;
+$stmt_qualities->execute($data_popularity);
+$popularity_quality = $stmt_qualities->fetch(PDO::FETCH_ASSOC);
 
 //お気に入り登録
 if (isset($_POST['id'])) {
@@ -64,27 +68,18 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
 
 <body>
 
-    <div class="list">
-        <div class="list__item">
-            <section class="detail__title">
-                <span></span>
-                <h1><?= $airbnb["name"] ?></h1>
-                <a href="">レビュー数</a>
-                <div>
-                    <span>シェア</span>
-                    <span>保存</span>
-                </div>
-            </section>
-            <img class="list__item--img" src="../img/airbnbs/<?= $airbnb["img"] ?>" alt="airbnb">
-            <h1 class="list__item--title"><?= $airbnb['name'] ?></h1>
-            <p class="list__item--price">¥<?= $airbnb['price'] ?>/泊</p>
-            <p class="list__item--capacity">収容：<?= $airbnb["capacity"] ?>人</p>
-            <!-- カート追加用 -->
+    <div class="detail">
+        <h1><?= $airbnb["name"] ?></h1>
+        <div>
+            <a href="">レビュー数</a>
+            <span>シェア</span>
+            <span>保存</span>
+        </div>
+        <div class="detail__container">
+            <img class="detail__container--img" src="../img/airbnbs/<?= $airbnb["img"] ?>" alt="airbnb">
+            <!-- お気に入り追加用 -->
             <form action="" method="post">
                 <input type="hidden" name="id" value="<?= $airbnb['id'] ?>">
-                <!-- <a href="/user/fav.php?id=<?= $airbnb['id'] ?>" class="list__item--favourite">
-                        <i class="far fa-heart"></i>
-                    </a> -->
                 <button class="list__item--favourite">
                     <?php if (empty($favourites[$airbnb['id']])) { ?>
                         <i class="far fa-heart"></i>
@@ -93,17 +88,33 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
                     <?php } ?>
                 </button>
             </form>
+            <table class="detail__container--info">
+                <tr>
+                    <th>立地</th>
+                    <td><?= $location_quality["evaluation"] ?></td>
+                </tr>
+                <tr>
+                    <th>サービス</th>
+                    <td><?= $service_quality["evaluation"] ?></td>
+                </tr>
+                <tr>
+                    <th>価格</th>
+                    <td><?= $airbnb["price"] ?></td>
+                </tr>
+                <tr>
+                    <th>収容人数</th>
+                    <td><?= $airbnb["capacity"] ?></td>
+                </tr>
+                <tr>
+                    <th>人気</th>
+                    <td><?= $popularity_quality["evaluation"] ?></td>
+                </tr>
+            </table>
         </div>
-        <section>
-            <div>
-                <span>立地：<?= $location_quality["evaluation"] ?></span>
-                <span>サービス：<?= $service_quality["evaluation"] ?></span>
-                <span>価格：<?= $airbnb["price"] ?>円</span>
-                <span>収容人数：<?= $airbnb["capacity"] ?>人</span>
-                <span>人気：<?= $location_quality["evaluation"] ?></span>
-            </div>
-        </section>
-        <a class="favourites__link" href="/user/index.php">一覧に戻る</a>
+        <div class="detail__link">
+            <a href="/user/index.php">一覧に戻る</a>
+        </div>
+
     </div>
 </body>
 
