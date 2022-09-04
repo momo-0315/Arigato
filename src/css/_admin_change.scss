@@ -1,6 +1,8 @@
 .change {
   max-width: 500px;
+  height: 100%;
   margin: 0 auto;
+  position: relative;
 
   &__item {
     margin: 10px 0;
@@ -63,17 +65,17 @@
   font-size: 20px;
   box-shadow: 0px 3px 3px #c4c4c4;
   position: absolute;
-  bottom: 20%;
+  bottom: 10%;
   cursor: pointer;
   color: #fff;
 }
 
 .edit__button {
-  right: 40%;
+  right: 20%;
   background-color: #35c1d3;
 }
 
 .delete__button {
-  left: 40%;
+  left: 20%;
   background-color: #ff6247;
 }

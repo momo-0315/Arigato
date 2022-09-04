@@ -2,7 +2,7 @@
 session_start();
 require("../dbconnect.php");
 
-$stmt = $db->query('SELECT * FROM airbnbs WHERE hide = 0');
+$stmt = $db->query('SELECT * FROM airbnbs WHERE hide = 0  AND deleted = 0');
 $airbnbs = $stmt->fetchAll();
 
 ?>
