@@ -105,6 +105,7 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
 
     <div class="list">
         <?php foreach ($airbnbs as $airbnb) : ?>
+            <a href="./detail.php?airbnb_id=<?php echo $airbnb["id"]?>" target=”_blank” rel="noopener noreferrer">
             <div class="list__item">
                 <img class="list__item--img" src="../img/airbnbs/<?= $airbnb["img"] ?>" alt="airbnb">
                 <h1 class="list__item--title"><?= $airbnb['name'] ?></h1>
@@ -122,6 +123,7 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
                     </button>
                 </form>
             </div>
+            </a>
         <?php endforeach; ?>
     </div>
 </body>
