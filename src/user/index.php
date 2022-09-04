@@ -50,14 +50,9 @@ if (isset($_POST['id'])) {
             ];
         }
     }
-
-    
 }
 
-
 $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
-
-
 
 ?>
 
@@ -91,9 +86,6 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
                 <!-- カート追加用 -->
                 <form action="" method="post">
                     <input type="hidden" name="id" value="<?= $airbnb['id'] ?>">
-                    <!-- <a href="/user/fav.php?id=<?= $airbnb['id'] ?>" class="list__item--favourite">
-                        <i class="far fa-heart"></i>
-                    </a> -->
                     <button class="list__item--favourite">
                         <?php if (empty($favourites[$airbnb['id']])) { ?>
                             <i class="far fa-heart"></i>
