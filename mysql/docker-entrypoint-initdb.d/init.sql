@@ -25,7 +25,7 @@ CREATE TABLE
         id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
         email VARCHAR(255) NOT NULL,
         password VARCHAR(255) NOT NULL
-    )
+    );
 
 INSERT INTO admins (email, password) VALUES ("admin1@airbnb.com","airbnb1");
 INSERT INTO admins (email, password) VALUES ("admin2@airbnb.com","airbnb2");

@@ -98,7 +98,7 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
                         <?php if (empty($favourites[$airbnb['id']])) { ?>
                             <i class="far fa-heart"></i>
                         <?php } else { ?>
-                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-heart heart_red"></i>
                         <?php } ?>
                     </button>
                 </form>
