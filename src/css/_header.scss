@@ -4,7 +4,10 @@
   align-items: center;
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1280px;
   height: 5rem;
   background: white;
   z-index: 1;
@@ -14,7 +17,6 @@
     align-items: center;
     width: 20%;
     height: 100%;
-    margin-left: 7%;
   }
   &__logo--icon {
     width: 30px;
@@ -31,6 +33,7 @@
   &__search {
     width: 100%;
     height: 100%;
+    text-align: center;
   }
   &__search--input{
     width: 30%;
@@ -38,7 +41,7 @@
     background: #f5f5f5;
     border: 1px solid rgb(211, 210, 210);
     border-radius: 30px;
-    margin: 1% 0 0 25%;
+    margin-top: 2%;
   }
   &__search--mark_wrapper {
     position: relative;
@@ -61,19 +64,27 @@
     -ms-transform: translate(-50%, -50%);
   }
   &__account {
-    width: 10%;
+    width: 18%;
     height:  100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
   }
   &__account--globe {
     width: 15px;
-    height: auto;
+    height: 15px;
     margin: 0 0.5rem;
   }
   &__account--wrapper{
-    width: 7%;
-    height:50%;
+    height: 50%;
     border: 1px solid rgb(211, 210, 210);
     border-radius: 30px;
-    margin: 0 5% 0 0;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__account--favourites {
+    color: #35c1d3;
   }
 }

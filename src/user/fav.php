@@ -24,7 +24,7 @@ if (isset($_POST['delete'])) {
   <div class="favourites">
     <h1 class="favourites__title">お気に入り一覧</h1>
     <?php if (empty($favourites)) { ?>
-      <p>お気にいりはまだありません！</p>
+      <p>お気に入りはまだありません！</p>
     <?php } else { ?>
       <table class="favourites__table">
         <form action="" method="post">
