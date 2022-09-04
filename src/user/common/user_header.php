@@ -29,10 +29,11 @@
         </button>
         </input>
     </form>
-    <div>
-
-    </div class="header__account">
-    <img class="header__account--globe" src="../../img/logos/globe.png" alt="">
-    <div class="header__account--wrapper"></div>
+    <div class="header__account">
+        <img class="header__account--globe" src="../../img/logos/globe.png" alt="">
+        <div class="header__account--wrapper">
+            <a href="fav.php" class="header__account--favourites">お気に入り</a>
+        </div>
     </div>
+
 </header>

@@ -41,6 +41,7 @@ CREATE TABLE airbnbs (
   price INT NOT NULL,
   capacity INT NOT NULL,
   popularity TINYINT(1) NOT NULL,
+  deleted TINYINT(1) NOT NULL DEFAULT 0,
   hide TINYINT(1) NOT NULL DEFAULT 0
 );
 

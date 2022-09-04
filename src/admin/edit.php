@@ -47,7 +47,7 @@ if (isset($_GET['id'])) {
   // 削除処理
   if (isset($_POST['delete'])) {
     
-    $stmt = $db->prepare("UPDATE airbnbs SET hide = 1 WHERE id = '$id'");
+    $stmt = $db->prepare("UPDATE airbnbs SET deleted = 1 WHERE id = '$id'");
     $stmt->execute();
 
     header('Location: index.php');

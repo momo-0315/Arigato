@@ -3,23 +3,27 @@ session_start();
 
 require("../dbconnect.php");
 
-$stmt = $db->query('SELECT * FROM airbnbs WHERE hide = 0');
+$stmt = $db->query('SELECT * FROM airbnbs WHERE hide = 0 AND deleted = 0');
 $airbnbs = $stmt->fetchAll();
 
 // フィルター処理
-if (isset($_POST['filter_service'])) {
+if (isset($_POST['filter_all'])) {
+    // 全て
+    $stmt = $db->query('SELECT * FROM airbnbs WHERE hide = 0  AND deleted = 0');
+    $airbnbs = $stmt->fetchAll();
+} elseif (isset($_POST['filter_service'])) {
     // サービスフィルター
-    $stmt = $db->query('SELECT * FROM airbnbs WHERE service = 1 AND hide = 0');
+    $stmt = $db->query('SELECT * FROM airbnbs WHERE service = 1 AND hide = 0  AND deleted = 0');
     $airbnbs = $stmt->fetchAll();
 } elseif (isset($_POST['filter_location'])) {
     // 立地フィルター
-    $stmt = $db->query('SELECT * FROM airbnbs WHERE location = 1 AND hide = 0');
+    $stmt = $db->query('SELECT * FROM airbnbs WHERE location = 1 AND hide = 0  AND deleted = 0');
     $airbnbs = $stmt->fetchAll();
 } elseif (isset($_POST['filter_fire'])) {
     // 人気フィルター
-    $stmt = $db->query('SELECT * FROM airbnbs WHERE popularity = 1 AND hide = 0');
+    $stmt = $db->query('SELECT * FROM airbnbs WHERE popularity = 1 AND hide = 0  AND deleted = 0');
     $airbnbs = $stmt->fetchAll();
-}
+} 
 
 //お気に入り登録
 if (isset($_POST['id'])) {
@@ -50,14 +54,9 @@ if (isset($_POST['id'])) {
             ];
         }
     }
-
-    
 }
 
-
 $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
-
-
 
 ?>
 
@@ -66,17 +65,40 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
 <body>
     <form action="" method="post">
         <div class="filter">
+            <button class="filter__item" name="filter_all" id="all">
+                <img class="filter__item--img" src="../img/filters/grid.png"></i>
+                <?php if (isset($_POST['filter_all'])) { ?>
+                <p class="filter__item--text text_underline">全て</p>
+                <?php } elseif (isset($_POST['filter_service']) || isset($_POST['filter_service']) || isset($_POST['filter_location']) || isset($_POST['filter_popularity'])) { ?>
+                <p class="filter__item--text">全て</p>
+                <?php } else { ?>
+                <p class="filter__item--text text_underline">全て</p>
+                <?php }?>
+
+            </button>
             <button class="filter__item" name="filter_service" id="service">
                 <img class="filter__item--img" src="../img/filters/support.png"></i>
+                <?php if (isset($_POST['filter_service'])) { ?>
+                <p class="filter__item--text text_underline">サービス</p>
+                <?php } else { ?>
                 <p class="filter__item--text">サービス</p>
+                <?php } ?>
             </button>
             <button class="filter__item" name="filter_location" id="location">
                 <img class="filter__item--img" src="../img/filters/location.png"></i>
+                <?php if (isset($_POST['filter_location'])) { ?>
+                <p class="filter__item--text text_underline">立地良き</p>
+                <?php } else { ?>
                 <p class="filter__item--text">立地良き</p>
+                <?php } ?>
             </button>
             <button class="filter__item" name="filter_fire" id="popularity">
                 <img class="filter__item--img" src="../img/filters/fire.png"></i>
+                <?php if (isset($_POST['filter_fire'])) { ?>
+                <p class="filter__item--text text_underline">人気</p>
+                <?php } else { ?>
                 <p class="filter__item--text">人気</p>
+                <?php } ?>
             </button>
         </div>
     </form>
@@ -92,14 +114,11 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
                 <!-- カート追加用 -->
                 <form action="" method="post">
                     <input type="hidden" name="id" value="<?= $airbnb['id'] ?>">
-                    <!-- <a href="/user/fav.php?id=<?= $airbnb['id'] ?>" class="list__item--favourite">
-                        <i class="far fa-heart"></i>
-                    </a> -->
                     <button class="list__item--favourite">
                         <?php if (empty($favourites[$airbnb['id']])) { ?>
                             <i class="far fa-heart"></i>
                         <?php } else { ?>
-                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-heart heart_red"></i>
                         <?php } ?>
                     </button>
                 </form>

@@ -30,6 +30,7 @@
     &:hover {
       font-weight: bold;
       text-decoration: underline;
+      text-decoration-color: #c0c0c0;
       cursor: pointer;
     }
 
@@ -40,6 +41,11 @@
     &--text {
       font-size: 12px;
       margin-top: 10px;
+    }
+
+    .text_underline {
+      text-decoration: underline;
+      font-weight: bold;
     }
   }
 }
