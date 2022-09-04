@@ -105,24 +105,24 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
 
     <div class="list" id="list">
         <?php foreach ($airbnbs as $airbnb) : ?>
-            <a href="./detail.php?airbnb_id=<?php echo $airbnb["id"]?>" target=”_blank” rel="noopener noreferrer">
-            <div class="list__item">
-                <img class="list__item--img" src="../img/airbnbs/<?= $airbnb["img"] ?>" alt="airbnb">
-                <h1 class="list__item--title"><?= $airbnb['name'] ?></h1>
-                <p class="list__item--price">¥<?= $airbnb['price'] ?>/泊</p>
-                <p class="list__item--capacity">収容：<?= $airbnb["capacity"] ?>人</p>
-                <!-- カート追加用 -->
-                <form action="" method="post">
-                    <input type="hidden" name="id" value="<?= $airbnb['id'] ?>">
-                    <button class="list__item--favourite">
-                        <?php if (empty($favourites[$airbnb['id']])) { ?>
-                            <i class="far fa-heart"></i>
-                        <?php } else { ?>
-                            <i class="fas fa-heart heart_red"></i>
-                        <?php } ?>
-                    </button>
-                </form>
-            </div>
+            <a class="list__link" href="./detail.php?airbnb_id=<?php echo $airbnb["id"] ?>" target=”_blank” rel="noopener noreferrer">
+                <div class="list__item">
+                    <img class="list__item--img" src="../img/airbnbs/<?= $airbnb["img"] ?>" alt="airbnb">
+                    <h1 class="list__item--title"><?= $airbnb['name'] ?></h1>
+                    <p class="list__item--price">¥<?= $airbnb['price'] ?>/泊</p>
+                    <p class="list__item--capacity">収容：<?= $airbnb["capacity"] ?>人</p>
+                    <!-- カート追加用 -->
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value="<?= $airbnb['id'] ?>">
+                        <button class="list__item--favourite">
+                            <?php if (empty($favourites[$airbnb['id']])) { ?>
+                                <i class="far fa-heart"></i>
+                            <?php } else { ?>
+                                <i class="fas fa-heart heart_red"></i>
+                            <?php } ?>
+                        </button>
+                    </form>
+                </div>
             </a>
         <?php endforeach; ?>
     </div>

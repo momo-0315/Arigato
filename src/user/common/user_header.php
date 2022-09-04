@@ -30,10 +30,10 @@
     </div>
 
     <!--  サイト内検索 -->
-    <div class="searchbox">
+    <div class="header__search">
         <form method="post" action="searchbox.php">
-            <input type="text" name="word" value="" placeholder="word..." required>
-            <input type="submit" name="submit" value="検索" id="search">
+            <input class="header__search--input" type="text" name="word" value="" placeholder="word..." required>
+            <input class="header__search--button" type="submit" name="submit" value="検索" id="search">
             <label for="search"><i class="fas fa-search"></i> </label>
         </form>
     </div>

@@ -31,15 +31,27 @@
 .header__search {
   width: 100%;
   height: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .header__search--input {
-  width: 30%;
-  height: 70%;
+  width: 50%;
+  height: 40px;
   background: #f5f5f5;
   border: 1px solid rgb(211, 210, 210);
   border-radius: 30px;
   margin-top: 2%;
+  padding-left: 10px;
+}
+.header__search--button {
+  color: #fff;
+  background-color: #35c1d3;
+  border: none;
+  border-radius: 5px;
+  padding: 1% 4%;
+  cursor: pointer;
+  height: 40px;
 }
 .header__search--mark_wrapper {
   position: relative;
@@ -139,7 +151,10 @@
   max-width: 1280px;
   margin: 150px auto 0 auto;
 }
-
+.list__link {
+  text-decoration: none;
+  color: #000;
+}
 .list__item {
   margin: 0 18px 32px 0;
   position: relative;
