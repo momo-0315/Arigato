@@ -25,6 +25,9 @@ if (isset($_POST['submit'])) {
   } else {
     // echo "Sorry, there was an error uploading your file.";
   }
+
+  header('Location: index.php');
+
 }
 
 ?>

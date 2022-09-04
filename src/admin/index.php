@@ -1,41 +1,26 @@
 <?php
 session_start();
-require('../dbconnect.php');
-if (isset($_SESSION['user_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
-    $_SESSION['time'] = time();
+require("../dbconnect.php");
 
-    if (!empty($_POST)) {
-        $stmt = $db->prepare('INSERT INTO events SET title=?');
-        $stmt->execute(array(
-            $_POST['title']
-        ));
+$stmt = $db->query('SELECT * FROM airbnbs WHERE hide = 0  AND deleted = 0');
+$airbnbs = $stmt->fetchAll();
 
-        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
-        exit();
-    }
-} else {
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/login.php');
-    exit();
-}
 ?>
-<!DOCTYPE html>
-<html lang="ja">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>管理者ログイン</title>
-</head>
+<?php include('./common/admin_header.php'); ?>
 
 <body>
-    <div>
-        <h1>管理者ページ</h1>
-        <form action="/admin/index.php" method="POST">
-            イベント名：<input type="text" name="title" required>
-            <input type="submit" value="登録する">
-        </form>
-        <a href="/index.php">イベント一覧</a>
+    <div class="list">
+        <?php foreach ($airbnbs as $airbnb) : ?>
+            <div class="list__item">
+                <a class="list__item--link" href="./edit.php?id=<?= $airbnb["id"] ?>">
+                    <img class="list__item--img" src="../img/airbnbs/<?= $airbnb["img"] ?>" alt="airbnb">
+                    <h1 class="list__item--title"><?= $airbnb["name"] ?></h1>
+                    <p class="list__item--price">¥<?= $airbnb["price"] ?>/泊</p>
+                    <p class="list__item--capacity">収容：<?= $airbnb["capacity"] ?>人</p>
+                </a>
+            </div>
+        <?php endforeach; ?>
     </div>
 </body>
 

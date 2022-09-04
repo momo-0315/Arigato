@@ -4,21 +4,31 @@ CREATE SCHEMA arigato;
 
 USE arigato;
 
+-- ユーザー
 DROP TABLE IF EXISTS users;
 
-CREATE TABLE users (
-  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  email VARCHAR(255) UNIQUE NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+CREATE TABLE
+    users (
+        id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL
+    );
 
-INSERT INTO
-  users
-SET
-  email = 'test@posse-ap.com',
-  password = sha1('password');
+INSERT INTO users (email, password) VALUES ("user1@airbnb.com","airbnb1");
+INSERT INTO users (email, password) VALUES ("user2@airbnb.com","airbnb2");
+
+-- 管理者
+DROP TABLE IF EXISTS admins;
+
+CREATE TABLE
+    admins (
+        id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL
+    );
+
+INSERT INTO admins (email, password) VALUES ("admin1@airbnb.com","airbnb1");
+INSERT INTO admins (email, password) VALUES ("admin2@airbnb.com","airbnb2");
 
 DROP TABLE IF EXISTS airbnbs;
 
@@ -30,7 +40,9 @@ CREATE TABLE airbnbs (
   service TINYINT(1) NOT NULL,
   price INT NOT NULL,
   capacity INT NOT NULL,
-  popularity TINYINT(1) NOT NULL
+  popularity TINYINT(1) NOT NULL,
+  deleted TINYINT(1) NOT NULL DEFAULT 0,
+  hide TINYINT(1) NOT NULL DEFAULT 0
 );
 
 INSERT INTO
@@ -143,3 +155,13 @@ SET
   capacity = 65,
   popularity = 0;
 
+DROP TABLE IF EXISTS qualities;
+
+CREATE TABLE qualities (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  rate TINYINT(1) NOT NULL,
+  evaluation VARCHAR(255) NOT NULL
+);
+
+INSERT INTO qualities (rate, evaluation) VALUES ("0","悪い");
+INSERT INTO qualities (rate, evaluation) VALUES ("1","非常に良い");

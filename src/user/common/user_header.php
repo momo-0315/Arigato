@@ -11,16 +11,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- js読み込み -->
+    <script src="../../js/user_page.js"></script>
 </head>
 <header class="header">
     <div class="header__logo">
         <img class="header__logo--icon" src="../../img/logos/airbnb (1).png" alt="">
+        </a>
         <span class="header__logo--text">posse airbnb</span>
     </div>
-    <form class="header__search" action="../../user/search_box.php" method="POST">
-        <input class="header__search--input" placeholder="サイト内検索はこちら" type="text" name=“word”>
-        <input class="header__search--mark_wrapper" type="submit" name="submit" value="" id="search">
-        
-    </form>
-    <div>
+
+    <!--  サイト内検索 -->
+    <div class="searchbox">
+        <form method="post" action="searchbox.php">
+            <input type="text" name="word" value="" placeholder="word..." required>
+            <input type="submit" name="submit" value="検索" id="search">
+            <label for="search"><i class="fas fa-search"></i> </label>
+        </form>
+    </div>
+
+    <div class="header__account">
+        <img class="header__account--globe" src="../../img/logos/globe.png" alt="">
+        <div class="header__account--wrapper">
+            <a href="fav.php" class="header__account--favourites">お気に入り</a>
+        </div>
+    </div>
+
 </header>
