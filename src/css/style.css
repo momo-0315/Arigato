@@ -113,6 +113,8 @@
 .filter__item:hover {
   font-weight: bold;
   text-decoration: underline;
+  -webkit-text-decoration-color: #c0c0c0;
+          text-decoration-color: #c0c0c0;
   cursor: pointer;
 }
 .filter__item--img {
