@@ -23,7 +23,7 @@ if (isset($_POST['filter_all'])) {
     // 人気フィルター
     $stmt = $db->query('SELECT * FROM airbnbs WHERE popularity = 1 AND hide = 0  AND deleted = 0');
     $airbnbs = $stmt->fetchAll();
-} 
+}
 
 //お気に入り登録
 if (isset($_POST['id'])) {
@@ -33,17 +33,17 @@ if (isset($_POST['id'])) {
     // お気に入りに既に登録している場合は削除
     if (isset($_SESSION['favourites'][$id])) {
         unset($_SESSION['favourites'][$id]);
-    // 既に登録していない場合は登録
+        // 既に登録していない場合は登録
     } else {
         $stmt = $db->prepare('SELECT * FROM airbnbs WHERE id = ?');
         $stmt->execute(array($id));
         $liked = $stmt->fetch();
-    
+
         $liked_id = $liked['id'];
         $liked_name = $liked['name'];
         $liked_price = $liked['price'];
         $liked_capacity = $liked['capacity'];
-    
+
         // 配列に入れるには、$liked_name,$liked_price,$liked_capacityの値が取得できていることが前提なのでif文で空のデータを排除する
         if ($liked_id != '' && $liked_name != '' && $liked_price != '' && $liked_capacity != '') {
             $_SESSION['favourites'][$id] = [
@@ -68,42 +68,42 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
             <button class="filter__item" name="filter_all" id="all">
                 <img class="filter__item--img" src="../img/filters/grid.png"></i>
                 <?php if (isset($_POST['filter_all'])) { ?>
-                <p class="filter__item--text text_underline">全て</p>
+                    <p class="filter__item--text text_underline">全て</p>
                 <?php } elseif (isset($_POST['filter_service']) || isset($_POST['filter_service']) || isset($_POST['filter_location']) || isset($_POST['filter_popularity'])) { ?>
-                <p class="filter__item--text">全て</p>
+                    <p class="filter__item--text">全て</p>
                 <?php } else { ?>
-                <p class="filter__item--text text_underline">全て</p>
-                <?php }?>
+                    <p class="filter__item--text text_underline">全て</p>
+                <?php } ?>
 
             </button>
             <button class="filter__item" name="filter_service" id="service">
                 <img class="filter__item--img" src="../img/filters/support.png"></i>
                 <?php if (isset($_POST['filter_service'])) { ?>
-                <p class="filter__item--text text_underline">サービス</p>
+                    <p class="filter__item--text text_underline">サービス</p>
                 <?php } else { ?>
-                <p class="filter__item--text">サービス</p>
+                    <p class="filter__item--text">サービス</p>
                 <?php } ?>
             </button>
             <button class="filter__item" name="filter_location" id="location">
                 <img class="filter__item--img" src="../img/filters/location.png"></i>
                 <?php if (isset($_POST['filter_location'])) { ?>
-                <p class="filter__item--text text_underline">立地良き</p>
+                    <p class="filter__item--text text_underline">立地良き</p>
                 <?php } else { ?>
-                <p class="filter__item--text">立地良き</p>
+                    <p class="filter__item--text">立地良き</p>
                 <?php } ?>
             </button>
             <button class="filter__item" name="filter_fire" id="popularity">
                 <img class="filter__item--img" src="../img/filters/fire.png"></i>
                 <?php if (isset($_POST['filter_fire'])) { ?>
-                <p class="filter__item--text text_underline">人気</p>
+                    <p class="filter__item--text text_underline">人気</p>
                 <?php } else { ?>
-                <p class="filter__item--text">人気</p>
+                    <p class="filter__item--text">人気</p>
                 <?php } ?>
             </button>
         </div>
     </form>
 
-    <div class="list">
+    <div class="list" id="list">
         <?php foreach ($airbnbs as $airbnb) : ?>
             <a href="./detail.php?airbnb_id=<?php echo $airbnb["id"]?>" target=”_blank” rel="noopener noreferrer">
             <div class="list__item">
@@ -126,6 +126,61 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
             </a>
         <?php endforeach; ?>
     </div>
+
+
+    <script>
+        // リロードの際スクロール位置を保存（お気に入り登録の際必要。ajaxわからないから今はこれで実装中）
+        var positionY; /* スクロール位置のY座標 */
+        var STORAGE_KEY = "scrollY"; /* ローカルストレージキー */
+        // checkOffset関数: 現在のスクロール量をチェックしてストレージに保存 //
+        function checkOffset() {
+            positionY = window.pageYOffset;
+            localStorage.setItem(STORAGE_KEY, positionY);
+        }
+        // 起動時の処理（ローカルストレージをチェックして前回のスクロール位置に戻す） //
+        window.addEventListener("load", function() {
+            // ストレージチェック
+            positionY = localStorage.getItem(STORAGE_KEY);
+            // 前回の保存データがあればスクロールする
+            if (positionY !== null) {
+                scrollTo(0, positionY);
+            }
+            // スクロール時のイベント設定
+            window.addEventListener("scroll", checkOffset, false);
+        });
+
+        // $(function() {
+        //     $("#like_button1").on("click", function() {
+        //         let id = $("#like_button1").val();
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "test.php",
+        //             data: {
+        //                 "id": id
+        //             },
+        //             success: function(data) {
+        //                 $("#list").html(data);
+        //             },
+        //         });
+        //     });
+        // });
+
+        // $(function() {
+        //     $("#unlike_button1").on("click", function() {
+        //         let id = $("#unlike_button1").val();
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "test.php",
+        //             data: {
+        //                 "id": id
+        //             },
+        //             success: function(data) {
+        //                 $("#list").html(data);
+        //             },
+        //         });
+        //     });
+        // });
+    </script>
 </body>
 
 </html>
