@@ -84,6 +84,10 @@
 .header__account--favourites {
   color: #35c1d3;
 }
+.header__margin {
+  max-width: 1280px;
+  margin: 150px auto 0 auto;
+}
 
 .filter {
   width: 1280px;
@@ -206,6 +210,15 @@
 
 .heart_red {
   color: red;
+}
+
+.detail {
+  padding-top: 20%;
+}
+
+.detail__title {
+  display: flex;
+  align-items: baseline;
 }
 
 .change {
