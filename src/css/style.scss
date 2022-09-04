@@ -3,4 +3,6 @@
 @import 'user_favourites';
 // エアビ追加・編集画面
 @import 'admin_change';
-@import 'util'
+@import 'util';
+//userとadminのログインページで共通
+@import 'login';
