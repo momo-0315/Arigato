@@ -33,7 +33,7 @@ if (isset($_POST['id'])) {
     // お気に入りに既に登録している場合は削除
     if (isset($_SESSION['favourites'][$id])) {
         unset($_SESSION['favourites'][$id]);
-    // 既に登録していない場合は登録
+        // 既に登録していない場合は登録
     } else {
         $stmt = $db->prepare('SELECT * FROM airbnbs WHERE id = ?');
         $stmt->execute(array($id));
@@ -103,7 +103,7 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
         </div>
     </form>
 
-    <div class="list">
+    <div class="list" id="list">
         <?php foreach ($airbnbs as $airbnb) : ?>
             <div class="list__item">
                 <img class="list__item--img" src="../img/airbnbs/<?= $airbnb["img"] ?>" alt="airbnb">
@@ -146,6 +146,38 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
             // スクロール時のイベント設定
             window.addEventListener("scroll", checkOffset, false);
         });
+
+        // $(function() {
+        //     $("#like_button1").on("click", function() {
+        //         let id = $("#like_button1").val();
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "test.php",
+        //             data: {
+        //                 "id": id
+        //             },
+        //             success: function(data) {
+        //                 $("#list").html(data);
+        //             },
+        //         });
+        //     });
+        // });
+
+        // $(function() {
+        //     $("#unlike_button1").on("click", function() {
+        //         let id = $("#unlike_button1").val();
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "test.php",
+        //             data: {
+        //                 "id": id
+        //             },
+        //             success: function(data) {
+        //                 $("#list").html(data);
+        //             },
+        //         });
+        //     });
+        // });
     </script>
 </body>
 
