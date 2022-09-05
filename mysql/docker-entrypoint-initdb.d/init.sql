@@ -165,3 +165,12 @@ CREATE TABLE qualities (
 
 INSERT INTO qualities (rate, evaluation) VALUES ("0","悪い");
 INSERT INTO qualities (rate, evaluation) VALUES ("1","非常に良い");
+
+DROP TABLE IF EXISTS reviews;
+CREATE TABLE `reviews` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '投稿番号',
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '投稿者名',
+  `contents` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '投稿内容',
+  `created_at` datetime DEFAULT NULL COMMENT '登録日時',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT = '投稿情報';

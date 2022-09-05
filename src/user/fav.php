@@ -45,6 +45,7 @@ if (isset($_POST['delete'])) {
                 <td>
                   <input type="hidden" name="delete_id" value="<?= $favourite['id'] ?>">
                   <button class="delete_button" name="delete">削除</button>
+                  <a href="reserve.php?id=<?= $favourite['id'] ?>" class="reserve_button" name="reserve">予約</a>
                 </td>
               </tr>
             </tbody>

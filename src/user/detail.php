@@ -30,6 +30,9 @@ $service_quality = $stmt_qualities->fetch(PDO::FETCH_ASSOC);
 $data_popularity[] = $popularity_rate;
 $stmt_qualities->execute($data_popularity);
 $popularity_quality = $stmt_qualities->fetch(PDO::FETCH_ASSOC);
+// 
+$reviews = $db->prepare("SELECT * FROM reviews");
+$reviews->execute();
 
 //お気に入り登録
 if (isset($_POST['id'])) {
@@ -111,10 +114,29 @@ $favourites = isset($_SESSION['favourites']) ? $_SESSION['favourites'] : [];
                 </tr>
             </table>
         </div>
+        <section>
+            <h1>掲示板サンプル</h1>
+            <section>
+                <h2>新規投稿</h2>
+                <form action="review.php" method="post">
+                    名前 : <input type="text" name="name" value=""><br>
+                    投稿内容: <input type="text" name="contents" value=""><br>
+                    <button type="submit">投稿</button>
+                </form>
+            </section>
+            <section>
+                <h2>投稿内容一覧</h2>
+                <?php foreach ($reviews as $loop) : ?>
+                    <div>No：<?php echo $loop['id'] ?></div>
+                    <div>名前：<?php echo $loop['name'] ?></div>
+                    <div>投稿内容：<?php echo $loop['contents'] ?></div>
+                    <div>------------------------------------------</div>
+                <?php endforeach; ?>
+            </section>
+        </section>
         <div class="detail__link">
             <a href="/user/index.php">一覧に戻る</a>
         </div>
-
     </div>
 </body>
 

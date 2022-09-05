@@ -190,13 +190,20 @@
   background-color: #35c1d3;
   color: white;
 }
-.favourites__table .delete_button {
-  border: 1px solid red;
-  color: red;
+.favourites__table .delete_button, .favourites__table .reserve_button {
   background-color: inherit;
   padding: 5px 10px;
   font-size: 15px;
   cursor: pointer;
+}
+.favourites__table .delete_button {
+  border: 1px solid red;
+  color: red;
+}
+.favourites__table .reserve_button {
+  border: 1px solid #35c1d3;
+  color: #35c1d3;
+  text-decoration: none;
 }
 .favourites__link {
   color: #35c1d3;
@@ -244,6 +251,49 @@
   text-align: center;
 }
 .detail__link a {
+  text-align: center;
+  color: #35c1d3;
+  font-size: 20px;
+}
+
+.reserve {
+  width: 1000px;
+  margin: 110px auto 0 auto;
+  text-align: center;
+}
+.reserve__container {
+  display: flex;
+  margin-bottom: 50px;
+}
+.reserve__container--img {
+  width: 700px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.reserve__container--info {
+  margin-left: 50px;
+  border-collapse: collapse;
+}
+.reserve__container--info td, .reserve__container--info th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.reserve__container--info td {
+  width: 150px;
+}
+.reserve__container--info th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: white;
+  background-color: #35c1d3;
+}
+.reserve__link {
+  text-align: center;
+}
+.reserve__link a {
   text-align: center;
   color: #35c1d3;
   font-size: 20px;
